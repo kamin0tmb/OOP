@@ -2,28 +2,47 @@
 
 namespace OOP
 {
-	class Pen
+	class Human
 	{
 		// Поля класса
-		public string color;
-		public int cost;
+		public string name;
+		public int age;
 
 		// Метод класса
-		public void PenCost()
+		public void Greetings()
 		{
-			Console.WriteLine("В наличии есть ручка цвета: {0}, стоимостью: {1} рублей", color, cost);
+			Console.WriteLine("Меня зовут {0}, мне {1}", name, age);
 		}
-		// Конструктор 2
-		public Pen()
+		public Human()
+	{
+		name = "Неизвестно";
+		age = 20;
+	}
+	// Конструктор 2
+	public Human(string n)
+	{
+		name = n;
+		age = 20;
+	}
+	// Конструктор 3
+	public Human(string n, int a)
+	{
+		name = n;
+		age = a;
+	}
+	}
+
+	struct Animal
+	{
+		// Поля структуры
+		public string type;
+		public string name;
+		public int age;
+
+		// Метод структуры
+		public void Info()
 		{
-			color = "Черный";
-			cost = 100;
-		}
-		// Конструктор 3
-		public Pen(string penColor, int penCost)
-		{
-			color = penColor;
-			cost = penCost;
+			Console.WriteLine("Это {0} по кличке {1}, ему {2}", type, name, age);
 		}
 	}
 
@@ -31,13 +50,19 @@ namespace OOP
 	{
 		static void Main(string[] args)
 		{
-			Pen pen = new Pen();
-			pen.PenCost();
+			Animal animal = new Animal { type = "Собака", name = "Вольт", age = 4 };
+			Human human = new Human();
+			human.Greetings();
 
-			pen = new Pen("Красный", 150);
-			pen.PenCost();
+			human = new Human("Дмитрий");
+			human.Greetings();
 
-			
+			human = new Human("Дмитрий", 23);
+			human.Greetings();
+			animal.Info();
+
+
+			Console.ReadKey();
 		}
 	}
 }
