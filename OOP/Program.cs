@@ -2,47 +2,35 @@
 
 namespace OOP
 {
-	class Human
+	class Rectangle
 	{
 		// Поля класса
-		public string name;
-		public int age;
+		public int a;
+		public int b;
+		public int c;
 
 		// Метод класса
-		public void Greetings()
+		public void Square()
 		{
-			Console.WriteLine("Меня зовут {0}, мне {1}", name, age);
+			c = a * b;
+			Console.WriteLine("У прямоугольника со сторонами {0} и {1} площадь равна {2}", a, b, c);
 		}
-		public Human()
-	{
-		name = "Неизвестно";
-		age = 20;
-	}
-	// Конструктор 2
-	public Human(string n)
-	{
-		name = n;
-		age = 20;
-	}
-	// Конструктор 3
-	public Human(string n, int a)
-	{
-		name = n;
-		age = a;
-	}
-	}
-
-	struct Animal
-	{
-		// Поля структуры
-		public string type;
-		public string name;
-		public int age;
-
-		// Метод структуры
-		public void Info()
+		// Конструктор 1
+		public Rectangle()
 		{
-			Console.WriteLine("Это {0} по кличке {1}, ему {2}", type, name, age);
+			a = 6;
+			b = 4;
+		}
+		// Конструктор 2
+		public Rectangle(int aNew)
+		{
+			a = aNew;
+			b = a;
+		}
+		public Rectangle(int aNew, int bNew)
+		{
+			a = aNew;
+			b = bNew;
 		}
 	}
 
@@ -50,19 +38,16 @@ namespace OOP
 	{
 		static void Main(string[] args)
 		{
-			Animal animal = new Animal { type = "Собака", name = "Вольт", age = 4 };
-			Human human = new Human();
-			human.Greetings();
+			Rectangle rectangle = new Rectangle();
+			rectangle.Square();
 
-			human = new Human("Дмитрий");
-			human.Greetings();
+			rectangle = new Rectangle(4);
+			rectangle.Square();
 
-			human = new Human("Дмитрий", 23);
-			human.Greetings();
-			animal.Info();
+			rectangle = new Rectangle(2, 4);
+			rectangle.Square();
 
 
-			Console.ReadKey();
 		}
 	}
 }
