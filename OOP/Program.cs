@@ -3,27 +3,40 @@
 namespace OOP
 {
 
-    class Obj
+    static class IntExtensions
     {
-        public string Name;
-        public string Description;
-        public static string Parent;
-        public static int DaysInWeek;
-        public static int MaxValue;
-        static Obj()
+        public static int GetNegative(this int source)
         {
-            Parent = "System.Object";
-            DaysInWeek = 7;
-            MaxValue = 2000;
+            if (source > 0)
+                return -source;
+            else return source;
         }
-    }
 
+
+
+        public static int GetPositive(this int source)
+        {
+            if (source < 0)
+                return -source;
+            else return source;
+        }
+
+    }
 
     class Program
     {
         static void Main(string[] args)
         {
-            
+            int num1 = 7;
+            int num2 = -13;
+            int num3 = 0;
+
+            Console.WriteLine(num1.GetNegative()); //-7
+            Console.WriteLine(num1.GetPositive()); //7
+            Console.WriteLine(num2.GetNegative()); //-13
+            Console.WriteLine(num2.GetPositive()); //13
+            Console.WriteLine(num3.GetNegative()); //0
+            Console.WriteLine(num3.GetPositive()); //0 
         }
 
     }
