@@ -2,52 +2,57 @@
 
 namespace OOP
 {
-	class Rectangle
+	class A
 	{
-		// Поля класса
-		public int a;
-		public int b;
-		public int c;
-
-		// Метод класса
-		public void Square()
+		public virtual void Display()
 		{
-			c = a * b;
-			Console.WriteLine("У прямоугольника со сторонами {0} и {1} площадь равна {2}", a, b, c);
-		}
-		// Конструктор 1
-		public Rectangle()
-		{
-			a = 6;
-			b = 4;
-		}
-		// Конструктор 2
-		public Rectangle(int aNew)
-		{
-			a = aNew;
-			b = a;
-		}
-		public Rectangle(int aNew, int bNew)
-		{
-			a = aNew;
-			b = bNew;
+			Console.WriteLine("A");
 		}
 	}
-
+	class B : A
+	{
+		public new void Display()
+		{
+			Console.WriteLine("B");
+		}
+	}
+	class C : A
+	{
+		public override void Display()
+		{
+			Console.WriteLine("C");
+		}
+	}
+	class D : B
+	{
+		public new void Display()
+		{
+			Console.WriteLine("D");
+		}
+	}
+	class E : C
+	{
+		public new void Display()
+		{
+			Console.WriteLine("E");
+		}
+	}
 	class Program
 	{
-		static void Main(string[] args)
-		{
-			Rectangle rectangle = new Rectangle();
-			rectangle.Square();
+		
+			static void Main(string[] args)
+			{
+			D d = new D();
+			E e = new E();
 
-			rectangle = new Rectangle(4);
-			rectangle.Square();
-
-			rectangle = new Rectangle(2, 4);
-			rectangle.Square();
+			d.Display();
+			((A)e).Display();
+			((B)d).Display();
+			((A)d).Display();
 
 
 		}
+		
+
 	}
 }
